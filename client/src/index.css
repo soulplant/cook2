@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+table {
+  width: 100%;
+}
+
+.kontainer {
+  display: flex;
+  width: 40em;
+  margin-top: 5em;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.button-kontainer {
+  display: flex;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  justify-content: flex-start;
+}
+
+td {
+  margin-top: 2px;
+  margin-bottom: 20px;
+}
