@@ -3,8 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@types/aphrodite": "^0.5.7",
+    "@types/react-redux": "^5.0.15",
+    "@types/redux": "^3.6.0",
+    "aphrodite": "^1.2.5",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.7",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.16.0"
   },
   "devDependencies": {
     "@types/jest": "^22.1.3",
