@@ -19,7 +19,7 @@ class ShowNotesToggle extends React.Component<StateProps & DispatchProps, {}> {
   render() {
     return (
       <div style={{ textAlign: "right" }}>
-        <label htmlFor="toggle-notes">Show Source</label>
+        <label htmlFor="toggle-notes">Show source</label>
         <input
           id="toggle-notes"
           type="checkbox"
