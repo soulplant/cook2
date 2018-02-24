@@ -69,7 +69,6 @@ export class ListMaker {
         }
       });
       results.push({ header: aisle });
-      var self = this;
       var recipeMap = ListMaker.makeRecipeMap(recipes);
       var rows = ingredientsInAisle.map(function(i) {
         var shortNames = i.recipes.map(function(recipeId) {
@@ -96,7 +95,7 @@ export class ListMaker {
   }
 
   static getIngredientList(recipes: Recipe[]): IngredientList[] {
-    var result = [];
+    var result: Ingredient[] = [];
     recipes.forEach(function(recipe) {
       recipe.ingredients.forEach(function(ingredient) {
         result.push(ListMaker.tagIngredientWithSource(ingredient, recipe));
@@ -109,7 +108,7 @@ export class ListMaker {
     ingredient: Ingredient,
     recipe: Recipe
   ): Ingredient {
-    var copy = angular.copy(ingredient);
+    const copy = JSON.parse(JSON.stringify(ingredient));
     copy.recipe = recipe.id;
     return copy;
   }
@@ -118,7 +117,6 @@ export class ListMaker {
   static mergeIngredients(ingredients: Ingredient[]): IngredientList[] {
     var byName: { [name: string]: Ingredient[] } = {};
     ingredients.forEach(function(i) {
-      var existing = byName[i.name];
       if (byName[i.name] == undefined) {
         byName[i.name] = [];
       }
@@ -130,9 +128,11 @@ export class ListMaker {
       var qs = ingredientList.map(function(i) {
         return i.quantity;
       });
-      var recipes = ingredientList.map(function(i) {
-        return i.recipe;
-      });
+      var recipes = ingredientList
+        .map(function(i) {
+          return i.recipe;
+        })
+        .filter(i => i !== undefined) as number[];
       result.push({
         name: name,
         quantities: qs,
@@ -176,7 +176,7 @@ export class ListMaker {
       if (m[name] === undefined) {
         m[name] = [0, name];
       }
-      m[name][0] += q[0];
+      m[name][0] += count;
     });
     var result = [];
     for (var k in m) {
