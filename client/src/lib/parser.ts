@@ -1,4 +1,11 @@
-import { Ingredient, IngredientList, Quantity, Section, Recipe, Aisle } from './types';
+import {
+  Ingredient,
+  IngredientList,
+  Quantity,
+  Section,
+  Recipe,
+  Aisle,
+} from "./types";
 
 export class Parser {
   private static trimHeader(str: string): string {
@@ -7,7 +14,7 @@ export class Parser {
 
   // Returns true if the line represents a section header.
   private static isHeader(line: string): boolean {
-    return line.charAt(0) == '=';
+    return line.charAt(0) == "=";
   }
 
   // A section is a header followed by one or more runs of non-empty lines.
@@ -24,11 +31,11 @@ export class Parser {
   // This function parses runs of sections delimited by double newlines.
   public static parseSections(text: string): Section[] {
     if (!text) {
-      return;
+      return [];
     }
-    var lines = text.split('\n');
+    var lines = text.split("\n");
     var sections = [];
-    var section: Section = null;
+    var section: Section | null = null;
     var part: string[] = [];
     for (var i in lines) {
       var line = lines[i];
@@ -52,11 +59,14 @@ export class Parser {
         part.push(line);
       }
       if (Parser.isHeader(line)) {
-        section = {header: Parser.trimHeader(line), parts: []};
+        section = { header: Parser.trimHeader(line), parts: [] };
         part = [];
       }
     }
     if (part.length > 0) {
+      if (!section) {
+        throw new Error("section shouldn't be null here");
+      }
       section.parts.push(part);
     }
     if (section != null) {
@@ -65,14 +75,18 @@ export class Parser {
     return sections;
   }
 
-  public static parseRecipes(recipesText: string, measurementsText: string): Recipe[] {
+  public static parseRecipes(
+    recipesText: string,
+    measurementsText: string
+  ): Recipe[] {
     var sections = Parser.parseSections(recipesText);
-    var parser = new IngredientParser(measurementsText.split('\n'));
+    var parser = new IngredientParser(measurementsText.split("\n"));
 
     var recipes: Recipe[] = [];
     for (var i = 0; i < sections.length; i++) {
-      var parseIngredient: (line: string) => Ingredient = parser.parseIngredient.bind(parser);
-      var f = parser.parseIngredient;
+      var parseIngredient: (
+        line: string
+      ) => Ingredient = parser.parseIngredient.bind(parser);
       recipes.push({
         id: i,
         name: sections[i].header,
@@ -85,8 +99,8 @@ export class Parser {
   public static parseAisles(aislesText: string): Aisle[] {
     var result: Aisle[] = [];
     var sections = Parser.parseSections(aislesText);
-    sections.forEach(function(section) {
-      result.push({name: section.header, ingredientNames: section.parts[0]});
+    sections.forEach(section => {
+      result.push({ name: section.header, ingredientNames: section.parts[0] });
     });
     return result;
   }
@@ -104,11 +118,11 @@ export class IngredientParser {
     return this.measurements.indexOf(word) != -1;
   }
 
-  public parseIngredient(line: string): Ingredient {
-    if (line == '') {
+  public parseIngredient(line: string): Ingredient | null {
+    if (line == "") {
       return null;
     }
-    var words = line.split(' ');
+    var words = line.split(" ");
     if (words.length == 0) {
       return null;
     }
@@ -123,7 +137,7 @@ export class IngredientParser {
         return null;
       }
     }
-    var measurement = '';
+    var measurement = "";
     if (this.isMeasurement(words[0])) {
       measurement = words[0];
       words = words.slice(1);
@@ -131,7 +145,7 @@ export class IngredientParser {
         return null;
       }
     }
-    var name = words.join(' ');
+    var name = words.join(" ");
     var quantity: Quantity = [];
     if (number !== undefined) {
       quantity = [number, measurement];
@@ -144,7 +158,7 @@ export class IngredientParser {
 
   // Visible for testing.
   public static parseNumber(str: string): number {
-    if (str.indexOf('/') != -1) {
+    if (str.indexOf("/") != -1) {
       return eval(str);
     }
     return parseInt(str);
