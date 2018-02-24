@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 
 import { includeRecipe } from "../actions";
 import { Recipe } from "../lib/types";
-import { getAllRecipes, getIncludedRecipes } from "../selectors";
+import { getAllRecipes, getIncludedRecipeIds } from "../selectors";
 import { State } from "../state";
+import ShowNotesToggle from "./ShowNotesToggle";
 
 interface Props {
   allRecipes: Recipe[];
@@ -18,25 +19,29 @@ interface DispatchProps {
 class RecipeList extends React.Component<Props & DispatchProps, {}> {
   render() {
     return (
-      <ul>
+      <div className="recipe-list">
         {this.props.allRecipes.map(recipe => {
           const included =
             this.props.includedRecipes.find(n => n === recipe.id) !== undefined;
+          const toggleRecipe = () =>
+            this.props.includeRecipe(recipe.id, !included);
+
           return (
-            <li key={recipe.id} style={{ textAlign: "right" }}>
-              <span
-                style={{
-                  cursor: "pointer",
-                  fontWeight: included ? "bold" : "normal",
-                }}
-                onClick={() => this.props.includeRecipe(recipe.id, !included)}
-              >
+            <div className="recipe" key={recipe.id}>
+              <label>
                 {recipe.name}
-              </span>
-            </li>
+                <input
+                  type="checkbox"
+                  checked={included}
+                  onChange={toggleRecipe}
+                />
+              </label>
+            </div>
           );
         })}
-      </ul>
+        <br />
+        <ShowNotesToggle />
+      </div>
     );
   }
 }
@@ -44,7 +49,7 @@ class RecipeList extends React.Component<Props & DispatchProps, {}> {
 export default connect(
   (state: State) => ({
     allRecipes: getAllRecipes(state),
-    includedRecipes: getIncludedRecipes(state),
+    includedRecipes: getIncludedRecipeIds(state),
   }),
   {
     includeRecipe,

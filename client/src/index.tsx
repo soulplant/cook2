@@ -1,4 +1,4 @@
-import "./bulma.css";
+// import "./bulma.css";
 import "./index.css";
 
 import * as React from "react";

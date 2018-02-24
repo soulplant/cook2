@@ -21,7 +21,7 @@ export const getAllRecipes = createSelector(
 export const getIsLoading = (state: State): boolean => !state.data;
 
 /** The recipe ids in the shopping list. */
-export const getIncludedRecipes = createSelector(
+export const getIncludedRecipeIds = createSelector(
   (state: State) => state.shoppingListRecipes,
   getAllRecipes,
   (shoppingList, recipes) =>
@@ -35,10 +35,17 @@ export const getAllRecipesById = createSelector(getAllRecipes, allRecipes => {
   return result;
 });
 
+/** The list of recipes in the shopping list. */
+export const getIncludedRecipes = createSelector(
+  getAllRecipesById,
+  getIncludedRecipeIds,
+  (byId, ids) => ids.map(id => byId[id])
+);
+
 /** The contents of the shopping list. */
 export const getShoppingList = createSelector(
   getAisles,
-  getIncludedRecipes,
+  getIncludedRecipeIds,
   getAllRecipesById,
   (aisles, includedRecipes, recipesById) => {
     const lm = new ListMaker(aisles);

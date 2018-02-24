@@ -13,11 +13,13 @@ interface DispatchProps {
   toggleShowNotes: typeof toggleShowNotes;
 }
 
+// TODO(james): Rename to ShowSourceToggle.
+/** Controls whether source recipes are listed for items in the shopping list. */
 class ShowNotesToggle extends React.Component<Props & DispatchProps, {}> {
   render() {
     return (
-      <div>
-        <label htmlFor="toggle-notes">Toggle Notes</label>
+      <div style={{ textAlign: "right" }}>
+        <label htmlFor="toggle-notes">Show Source</label>
         <input
           id="toggle-notes"
           type="checkbox"

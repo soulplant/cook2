@@ -3,10 +3,9 @@ import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
 import RecipeList from "./containers/RecipeList";
+import ShoppingList from "./containers/ShoppingList";
 import { getIsLoading } from "./selectors";
 import { State } from "./state";
-import ShoppingList from "./containers/ShoppingList";
-import ShowNotesToggle from "./containers/ShowNotesToggle";
 
 interface Props {
   isLoading: boolean;
@@ -22,16 +21,9 @@ class App extends React.Component<Props & DispatchProps, {}> {
       return null;
     }
     return (
-      <div>
-        <div className="columns">
-          <div className="column">
-            <RecipeList />
-          </div>
-          <div className="column">
-            <ShoppingList />
-          </div>
-        </div>
-        <ShowNotesToggle />
+      <div style={{ fontFamily: "monospace" }}>
+        <RecipeList />
+        <ShoppingList />
       </div>
     );
   }

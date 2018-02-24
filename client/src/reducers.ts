@@ -40,7 +40,7 @@ const shoppingListRecipes = (
 };
 
 export const showNotes = (
-  state: boolean = true,
+  state: boolean = false,
   action: CookAction
 ): boolean => {
   switch (action.type) {
