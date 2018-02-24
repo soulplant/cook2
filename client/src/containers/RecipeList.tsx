@@ -23,7 +23,7 @@ class RecipeList extends React.Component<Props & DispatchProps, {}> {
           const included =
             this.props.includedRecipes.find(n => n === recipe.id) !== undefined;
           return (
-            <li key={recipe.id}>
+            <li key={recipe.id} style={{ textAlign: "right" }}>
               <span
                 style={{
                   cursor: "pointer",

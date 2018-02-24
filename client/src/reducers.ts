@@ -1,6 +1,11 @@
 import { combineReducers } from "redux";
 
-import { CookAction, INITIAL_LOAD_DONE, INCLUDE_RECIPE } from "./actions";
+import {
+  CookAction,
+  INITIAL_LOAD_DONE,
+  INCLUDE_RECIPE,
+  TOGGLE_SHOW_NOTES,
+} from "./actions";
 import { Data } from "./lib/types";
 
 const data = (state: Data | null = null, action: CookAction): Data | null => {
@@ -34,7 +39,22 @@ const shoppingListRecipes = (
   }
 };
 
+export const showNotes = (
+  state: boolean = true,
+  action: CookAction
+): boolean => {
+  switch (action.type) {
+    case TOGGLE_SHOW_NOTES: {
+      return action.showNotes;
+    }
+    default: {
+      return state;
+    }
+  }
+};
+
 export const reducer = combineReducers<{}>({
   data,
   shoppingListRecipes,
+  showNotes,
 });

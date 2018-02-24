@@ -2,12 +2,13 @@ import * as React from "react";
 import { connect } from "react-redux";
 
 import { ShoppingListRow } from "../lib/types";
-import { getShoppingList } from "../selectors";
+import { getShoppingList, getShowNotes } from "../selectors";
 import { State } from "../state";
 import { ShoppingListIngredientView } from "../components/Ingredient";
 
 interface Props {
   shoppingList: ShoppingListRow[];
+  showNotes: boolean;
 }
 
 interface DispatchProps {}
@@ -28,9 +29,10 @@ class ShoppingList extends React.Component<Props & DispatchProps, {}> {
             return (
               <li key={i}>
                 <ShoppingListIngredientView ingredient={item.ingredient} />{" "}
-                {item.note && (
-                  <span style={{ color: "red" }}>[{item.note}]</span>
-                )}
+                {this.props.showNotes &&
+                  item.note && (
+                    <span style={{ color: "red" }}>[{item.note}]</span>
+                  )}
               </li>
             );
           }
@@ -44,6 +46,7 @@ class ShoppingList extends React.Component<Props & DispatchProps, {}> {
 export default connect(
   (state: State) => ({
     shoppingList: getShoppingList(state),
+    showNotes: getShowNotes(state),
   }),
   {}
 )(ShoppingList);

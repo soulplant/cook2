@@ -5,12 +5,14 @@ export type CookAction =
   | InitAction
   | InitialLoadStartAction
   | InitialLoadDoneAction
-  | IncludeRecipeAction;
+  | IncludeRecipeAction
+  | ToggleShowNotesAction;
 
 export const INIT = "@@INIT";
 export const INITIAL_LOAD_START = "INITIAL_LOAD_START";
 export const INITIAL_LOAD_DONE = "INITIAL_LOAD_DONE";
 export const INCLUDE_RECIPE = "INCLUDE_RECIPE";
+export const TOGGLE_SHOW_NOTES = "TOGGLE_SHOW_NOTES";
 
 export interface InitAction extends Action {
   type: typeof INIT;
@@ -51,4 +53,14 @@ export const includeRecipe = (
   type: INCLUDE_RECIPE,
   recipeIndex,
   include,
+});
+
+export interface ToggleShowNotesAction extends Action {
+  type: typeof TOGGLE_SHOW_NOTES;
+  showNotes: boolean;
+}
+
+export const toggleShowNotes = (showNotes: boolean): ToggleShowNotesAction => ({
+  type: TOGGLE_SHOW_NOTES,
+  showNotes,
 });
