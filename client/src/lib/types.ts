@@ -4,7 +4,7 @@ export interface Ingredient {
   recipe?: number;
 }
 
-export interface IngredientList {
+export interface ShoppingListIngredient {
   name: string;
   quantities: Quantity[];
   recipes: number[];
@@ -32,7 +32,7 @@ export interface Aisle {
 // A line in the shopping list.
 export interface ShoppingListRow {
   // The ingredient and its quantities.
-  ingredientList?: IngredientList;
+  ingredient?: ShoppingListIngredient;
   // An arbitrary piece of text to accompany this row.
   // TODO: Replace this with the resolved list of recipes this row is
   // contributed by. Currently that is this field's only use.

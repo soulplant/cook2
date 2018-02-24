@@ -1,6 +1,6 @@
 import {
   Ingredient,
-  IngredientList,
+  ShoppingListIngredient,
   Quantity,
   Section,
   Recipe,

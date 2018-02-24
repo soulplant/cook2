@@ -1,7 +1,7 @@
 import {
   Aisle,
   Ingredient,
-  IngredientList,
+  ShoppingListIngredient,
   Quantity,
   Recipe,
   ShoppingListRow,
@@ -39,9 +39,9 @@ export class ListMaker {
 
   makeListFromIngredients(
     recipes: Recipe[],
-    ingredients: IngredientList[]
+    ingredients: ShoppingListIngredient[]
   ): ShoppingListRow[] {
-    const byAisle: { [name: string]: IngredientList[] } = {};
+    const byAisle: { [name: string]: ShoppingListIngredient[] } = {};
     for (let i = 0; i < ingredients.length; i++) {
       const aisle = this.aislesByIngredient[ingredients[i].name] || "Other";
       if (!byAisle[aisle]) {
@@ -67,15 +67,19 @@ export class ListMaker {
       });
       results.push({ header: aisle });
       const recipeMap = ListMaker.makeRecipeMap(recipes);
-      const rows = ingredientsInAisle.map(i => {
-        const shortNames = i.recipes.map(recipeId => {
+      const rows = ingredientsInAisle.map(ing => {
+        const shortNames = ing.recipes.map(recipeId => {
           return getShortName(recipeMap[recipeId].name);
         });
         let note = "";
         if (shortNames.length > 0) {
           note = shortNames.join(", ");
         }
-        return { note: note, ingredientList: i };
+        const result: ShoppingListRow = {
+          note,
+          ingredient: ing,
+        };
+        return result;
       });
       results.push.apply(results, rows);
     }
@@ -91,7 +95,7 @@ export class ListMaker {
     return result;
   }
 
-  static getIngredientList(recipes: Recipe[]): IngredientList[] {
+  static getIngredientList(recipes: Recipe[]): ShoppingListIngredient[] {
     const result: Ingredient[] = [];
     recipes.forEach(recipe => {
       recipe.ingredients.forEach(ingredient => {
@@ -111,7 +115,7 @@ export class ListMaker {
   }
 
   // Visibile for testing.
-  static mergeIngredients(ingredients: Ingredient[]): IngredientList[] {
+  static mergeIngredients(ingredients: Ingredient[]): ShoppingListIngredient[] {
     const byName: { [name: string]: Ingredient[] } = {};
     ingredients.forEach(i => {
       if (byName[i.name] == undefined) {
@@ -119,7 +123,7 @@ export class ListMaker {
       }
       byName[i.name].push(i);
     });
-    const result: IngredientList[] = [];
+    const result: ShoppingListIngredient[] = [];
     for (const name in byName) {
       const ingredientList = byName[name];
       const qs = ingredientList.map(i => i.quantity);
