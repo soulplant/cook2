@@ -21,7 +21,7 @@ export class ListMaker {
     this.aisleNames.push("Other");
     this.aislesByIngredient = {};
 
-    var self = this;
+    const self = this;
 
     aisles.forEach(function(aisle) {
       aisle.ingredientNames.forEach(function(ingredientName) {
@@ -41,21 +41,18 @@ export class ListMaker {
     recipes: Recipe[],
     ingredients: IngredientList[]
   ): ShoppingListRow[] {
-    var byAisle: { [name: string]: IngredientList[] } = {};
-    for (var i = 0; i < ingredients.length; i++) {
-      var aisle = this.aislesByIngredient[ingredients[i].name];
-      if (!aisle) {
-        aisle = "Other";
-      }
+    const byAisle: { [name: string]: IngredientList[] } = {};
+    for (let i = 0; i < ingredients.length; i++) {
+      const aisle = this.aislesByIngredient[ingredients[i].name] || "Other";
       if (!byAisle[aisle]) {
         byAisle[aisle] = [];
       }
       byAisle[aisle].push(ingredients[i]);
     }
-    var results: ShoppingListRow[] = [];
-    for (var i = 0; i < this.aisleNames.length; i++) {
-      var aisle = this.aisleNames[i];
-      var ingredientsInAisle = byAisle[aisle];
+    const results: ShoppingListRow[] = [];
+    for (let i = 0; i < this.aisleNames.length; i++) {
+      const aisle = this.aisleNames[i];
+      const ingredientsInAisle = byAisle[aisle];
       if (!ingredientsInAisle) {
         continue;
       }
@@ -69,12 +66,12 @@ export class ListMaker {
         }
       });
       results.push({ header: aisle });
-      var recipeMap = ListMaker.makeRecipeMap(recipes);
-      var rows = ingredientsInAisle.map(function(i) {
-        var shortNames = i.recipes.map(function(recipeId) {
+      const recipeMap = ListMaker.makeRecipeMap(recipes);
+      const rows = ingredientsInAisle.map(function(i) {
+        const shortNames = i.recipes.map(function(recipeId) {
           return getShortName(recipeMap[recipeId].name);
         });
-        var note = "";
+        let note = "";
         if (shortNames.length > 0) {
           note = shortNames.join(", ");
         }
@@ -86,16 +83,16 @@ export class ListMaker {
   }
 
   private static makeRecipeMap(recipes: Recipe[]): { [id: number]: Recipe } {
-    var result: { [id: number]: Recipe } = {};
-    for (var i = 0; i < recipes.length; i++) {
-      var recipe = recipes[i];
+    const result: { [id: number]: Recipe } = {};
+    for (let i = 0; i < recipes.length; i++) {
+      const recipe = recipes[i];
       result[recipe.id] = recipe;
     }
     return result;
   }
 
   static getIngredientList(recipes: Recipe[]): IngredientList[] {
-    var result: Ingredient[] = [];
+    const result: Ingredient[] = [];
     recipes.forEach(function(recipe) {
       recipe.ingredients.forEach(function(ingredient) {
         result.push(ListMaker.tagIngredientWithSource(ingredient, recipe));
@@ -115,20 +112,20 @@ export class ListMaker {
 
   // Visibile for testing.
   static mergeIngredients(ingredients: Ingredient[]): IngredientList[] {
-    var byName: { [name: string]: Ingredient[] } = {};
+    const byName: { [name: string]: Ingredient[] } = {};
     ingredients.forEach(function(i) {
       if (byName[i.name] == undefined) {
         byName[i.name] = [];
       }
       byName[i.name].push(i);
     });
-    var result: IngredientList[] = [];
-    for (var name in byName) {
-      var ingredientList = byName[name];
-      var qs = ingredientList.map(function(i) {
+    const result: IngredientList[] = [];
+    for (const name in byName) {
+      const ingredientList = byName[name];
+      const qs = ingredientList.map(function(i) {
         return i.quantity;
       });
-      var recipes = ingredientList
+      const recipes = ingredientList
         .map(function(i) {
           return i.recipe;
         })
@@ -149,12 +146,12 @@ export class ListMaker {
   }
 
   private static uniq(xs: number[]): number[] {
-    var m: { [word: number]: number } = {};
-    for (var i = 0; i < xs.length; i++) {
+    const m: { [word: number]: number } = {};
+    for (let i = 0; i < xs.length; i++) {
       m[xs[i]] = xs[i];
     }
-    var result: number[] = [];
-    for (var key in m) {
+    const result: number[] = [];
+    for (const key in m) {
       result.push(m[key]);
     }
     result.sort();
@@ -166,20 +163,20 @@ export class ListMaker {
   // [[450, 'g'], [3, 'bunch']]]
   // Visible for testing.
   static mergeQuantities(quantities: Quantity[]): Quantity[] {
-    var m = {};
+    const m = {};
     quantities.forEach(function(q) {
       if (q.length == 0) {
         return;
       }
-      var name = q[1] || "";
-      var count = q[0];
+      const name = q[1] || "";
+      const count = q[0];
       if (m[name] === undefined) {
         m[name] = [0, name];
       }
       m[name][0] += count;
     });
-    var result = [];
-    for (var k in m) {
+    const result = [];
+    for (const k in m) {
       result.push([m[k][0], k]);
     }
     return result;
@@ -187,7 +184,7 @@ export class ListMaker {
 }
 
 function allCaps(str: string): boolean {
-  for (var i = 0; i < str.length; i++) {
+  for (let i = 0; i < str.length; i++) {
     if ("A" > str.charAt(i) || str.charAt(i) > "Z") {
       return false;
     }
@@ -201,7 +198,7 @@ function startsWithCap(str: string): boolean {
 
 // Make a method on ListMaker.
 export function getShortName(string: string): string {
-  var words = string.split(" ");
+  const words = string.split(" ");
   if (words.length == 1 && allCaps(words[0])) {
     return words[0];
   }
