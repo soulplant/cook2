@@ -1,11 +1,4 @@
-import {
-  Ingredient,
-  ShoppingListIngredient,
-  Quantity,
-  Section,
-  Recipe,
-  Aisle,
-} from "./types";
+import { Aisle, Ingredient, Quantity, Recipe, Section } from "./types";
 
 export class Parser {
   private static trimHeader(str: string): string {
