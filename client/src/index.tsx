@@ -10,6 +10,7 @@ import createSagaMiddleware from "redux-saga";
 import { initialLoadStart } from "./actions";
 import { reducer } from "./reducers";
 import { watchInitialLoad } from "./sagas";
+import App from "./App";
 
 declare var window: Window & {
   __REDUX_DEVTOOLS_EXTENSION__?: Function;
@@ -31,7 +32,7 @@ store.dispatch(initialLoadStart());
 
 ReactDOM.render(
   <Provider store={store}>
-    <div>hi</div>
+    <App />
   </Provider>,
   document.getElementById("root") as HTMLElement
 );

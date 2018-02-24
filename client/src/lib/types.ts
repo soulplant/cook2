@@ -44,3 +44,10 @@ export interface ShoppingListRow {
 }
 
 export type Quantity = [number, string];
+
+/** Data fetched from the server. */
+export interface Data {
+  recipes: string;
+  measurements: string;
+  aisles: string;
+}
