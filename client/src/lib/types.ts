@@ -1,6 +1,6 @@
 export interface Ingredient {
   name: string;
-  quantity: Quantity;
+  quantity: Quantity | null;
   recipe?: number;
 }
 
@@ -43,5 +43,4 @@ export interface ShoppingListRow {
   header?: string;
 }
 
-// TODO: Make this a non-tuple type.
-export type Quantity = [number, string] | any[];
+export type Quantity = [number, string];

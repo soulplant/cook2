@@ -1,15 +1,64 @@
 import { Aisle, Ingredient, Quantity, Recipe, Section } from "./types";
 
+class IngredientParser {
+  private measurements: string[];
+
+  private static parseNumber(str: string): number {
+    if (str.indexOf("/") !== -1) {
+      const [n, d] = str.split("/");
+      return parseInt(n, 10) / parseInt(d, 10);
+    }
+    return parseInt(str, 10);
+  }
+
+  public constructor(measurements: string[]) {
+    this.measurements = measurements;
+  }
+
+  public parseIngredient(line: string): Ingredient | null {
+    if (line === "") {
+      return null;
+    }
+    var words = line.split(" ");
+    if (words.length === 0) {
+      return null;
+    }
+    var num = undefined;
+    if (/^[0-9\/]+$/.test(words[0])) {
+      num = IngredientParser.parseNumber(words[0]);
+      if (isNaN(num)) {
+        throw "failed to parse '" + line + "'";
+      }
+      words = words.slice(1);
+      if (words.length === 0) {
+        return null;
+      }
+    }
+    var measurement = "";
+    if (this.isMeasurement(words[0])) {
+      measurement = words[0];
+      words = words.slice(1);
+      if (words.length === 0) {
+        return null;
+      }
+    }
+    var name = words.join(" ");
+    var quantity: Quantity | null = null;
+    if (num !== undefined) {
+      quantity = [num, measurement];
+    }
+    return {
+      quantity,
+      name,
+    };
+  }
+
+  private isMeasurement(word: string): boolean {
+    return this.measurements.indexOf(word) !== -1;
+  }
+}
+
 export class Parser {
-  private static trimHeader(str: string): string {
-    return str.substring(1, str.length - 1).trim();
-  }
-
-  // Returns true if the line represents a section header.
-  private static isHeader(line: string): boolean {
-    return line.charAt(0) == "=";
-  }
-
   // A section is a header followed by one or more runs of non-empty lines.
   //
   // For example:
@@ -26,12 +75,11 @@ export class Parser {
     if (!text) {
       return [];
     }
-    var lines = text.split("\n");
-    var sections = [];
-    var section: Section | null = null;
+    const lines = text.split("\n");
+    const sections: Section[] = [];
+    let section: Section | null = null;
     var part: string[] = [];
-    for (var i in lines) {
-      var line = lines[i];
+    for (let line of lines) {
       if (section != null) {
         if (line.length > 0) {
           part.push(line);
@@ -41,7 +89,7 @@ export class Parser {
 
         // Part is empty, this means this is the second empty line we've
         // encountered in a row, so we're done with this section.
-        if (part.length == 0) {
+        if (part.length === 0) {
           sections.push(section);
           section = null;
         } else {
@@ -97,64 +145,13 @@ export class Parser {
     });
     return result;
   }
-}
 
-// Visible for testing.
-export class IngredientParser {
-  private measurements: string[];
-
-  public constructor(measurements: string[]) {
-    this.measurements = measurements;
+  private static trimHeader(str: string): string {
+    return str.substring(1, str.length - 1).trim();
   }
 
-  private isMeasurement(word: string): boolean {
-    return this.measurements.indexOf(word) != -1;
-  }
-
-  public parseIngredient(line: string): Ingredient | null {
-    if (line == "") {
-      return null;
-    }
-    var words = line.split(" ");
-    if (words.length == 0) {
-      return null;
-    }
-    var number = undefined;
-    if (/^[0-9\/]+$/.test(words[0])) {
-      number = IngredientParser.parseNumber(words[0]);
-      if (isNaN(number)) {
-        throw "failed to parse '" + line + "'";
-      }
-      words = words.slice(1);
-      if (words.length == 0) {
-        return null;
-      }
-    }
-    var measurement = "";
-    if (this.isMeasurement(words[0])) {
-      measurement = words[0];
-      words = words.slice(1);
-      if (words.length == 0) {
-        return null;
-      }
-    }
-    var name = words.join(" ");
-    var quantity: Quantity = [];
-    if (number !== undefined) {
-      quantity = [number, measurement];
-    }
-    return {
-      quantity: quantity,
-      name: name,
-    };
-  }
-
-  // Visible for testing.
-  public static parseNumber(str: string): number {
-    if (str.indexOf("/") != -1) {
-      const [n, d] = str.split("/");
-      return parseInt(n) / parseInt(d);
-    }
-    return parseInt(str);
+  // Returns true if the line represents a section header.
+  private static isHeader(line: string): boolean {
+    return line.charAt(0) === "=";
   }
 }
