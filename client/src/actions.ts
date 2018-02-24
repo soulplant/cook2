@@ -4,11 +4,13 @@ import { Data } from "./lib/types";
 export type CookAction =
   | InitAction
   | InitialLoadStartAction
-  | InitialLoadDoneAction;
+  | InitialLoadDoneAction
+  | IncludeRecipeAction;
 
 export const INIT = "@@INIT";
 export const INITIAL_LOAD_START = "INITIAL_LOAD_START";
 export const INITIAL_LOAD_DONE = "INITIAL_LOAD_DONE";
+export const INCLUDE_RECIPE = "INCLUDE_RECIPE";
 
 export interface InitAction extends Action {
   type: typeof INIT;
@@ -34,4 +36,19 @@ export interface InitialLoadDoneAction extends Action {
 export const initialLoadDone = (data: Data): InitialLoadDoneAction => ({
   type: INITIAL_LOAD_DONE,
   data,
+});
+
+export interface IncludeRecipeAction extends Action {
+  type: typeof INCLUDE_RECIPE;
+  recipeIndex: number;
+  include: boolean;
+}
+
+export const includeRecipe = (
+  recipeIndex: number,
+  include: boolean
+): IncludeRecipeAction => ({
+  type: INCLUDE_RECIPE,
+  recipeIndex,
+  include,
 });

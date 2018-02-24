@@ -2,11 +2,13 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
+import RecipeList from "./containers/RecipeList";
+import { getIsLoading } from "./selectors";
 import { State } from "./state";
-import { Data } from "./lib/types";
+import ShoppingList from "./containers/ShoppingList";
 
 interface Props {
-  data: Data | null;
+  isLoading: boolean;
 }
 
 interface DispatchProps {
@@ -15,13 +17,22 @@ interface DispatchProps {
 
 class App extends React.Component<Props & DispatchProps, {}> {
   render() {
-    if (this.props.data) {
-      return <div>{JSON.stringify(this.props.data, null, 2)}</div>;
+    if (this.props.isLoading) {
+      return null;
     }
-    return <h1>Hi from App</h1>;
+    return (
+      <div className="columns">
+        <div className="column">
+          <RecipeList />
+        </div>
+        <div className="column">
+          <ShoppingList />
+        </div>
+      </div>
+    );
   }
 }
 
 export default connect((state: State) => ({
-  data: state.data,
+  isLoading: getIsLoading(state),
 }))(App);

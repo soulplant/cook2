@@ -124,7 +124,7 @@ export class Parser {
     var parser = new IngredientParser(measurementsText.split("\n"));
 
     var recipes: Recipe[] = [];
-    for (var i = 0; i < sections.length; i++) {
+    for (let i = 0; i < sections.length; i++) {
       var parseIngredient: (
         line: string
       ) => Ingredient = parser.parseIngredient.bind(parser);
