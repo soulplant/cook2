@@ -15,9 +15,9 @@ interface StateProps {
 interface DispatchProps {}
 
 const LegendItem = (props: { shortName: string; name: string }) => (
-  <span>
-    <Note text={props.shortName} /> {props.name}
-  </span>
+  <li>
+    <Note text={props.shortName} /> <span className="">{props.name}</span>
+  </li>
 );
 
 /** Shows a mapping from short name to full name of recipes. */
