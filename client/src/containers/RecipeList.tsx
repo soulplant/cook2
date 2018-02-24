@@ -7,7 +7,7 @@ import { getAllRecipes, getIncludedRecipeIds } from "../selectors";
 import { State } from "../state";
 import ShowNotesToggle from "./ShowNotesToggle";
 
-interface Props {
+interface StateProps {
   allRecipes: Recipe[];
   includedRecipes: number[];
 }
@@ -16,7 +16,7 @@ interface DispatchProps {
   includeRecipe: typeof includeRecipe;
 }
 
-class RecipeList extends React.Component<Props & DispatchProps, {}> {
+class RecipeList extends React.Component<StateProps & DispatchProps, {}> {
   render() {
     return (
       <div className="recipe-list">

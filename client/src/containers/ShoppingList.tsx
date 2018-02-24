@@ -9,15 +9,14 @@ import { Note } from "../components/Note";
 import Legend from "./Legend";
 import { Header } from "../components/Header";
 
-// TODO(james): Rename to StateProps.
-interface Props {
+interface StateProps {
   shoppingList: ShoppingListRow[];
   showNotes: boolean;
 }
 
 interface DispatchProps {}
 
-class ShoppingList extends React.Component<Props & DispatchProps, {}> {
+class ShoppingList extends React.Component<StateProps & DispatchProps, {}> {
   render() {
     return (
       <ul className="ingredient-list">
