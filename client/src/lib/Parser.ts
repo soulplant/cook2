@@ -159,7 +159,8 @@ export class IngredientParser {
   // Visible for testing.
   public static parseNumber(str: string): number {
     if (str.indexOf("/") != -1) {
-      return eval(str);
+      const [n, d] = str.split("/");
+      return parseInt(n) / parseInt(d);
     }
     return parseInt(str);
   }
