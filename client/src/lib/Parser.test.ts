@@ -23,5 +23,8 @@ describe("Parser", () => {
     expect(recipe.ingredients).toHaveLength(3);
     const ingredient = recipe.ingredients[0];
     expect(ingredient.name).toBe("salt");
+    const water = recipe.ingredients[2];
+    // 'l' is not a measurement, so interpreted as part of the name.
+    expect(water.name).toBe("l water");
   });
 });
