@@ -1,4 +1,7 @@
 = Fresh =
+asparagus
+big mushroom
+button mushroom
 cauliflower
 celery
 cherry tomato
@@ -9,6 +12,7 @@ eggplant
 eggs
 garlic
 ginger
+ginger slices
 large tomato
 lemon
 lettuce
@@ -48,27 +52,30 @@ mint
 rosemary
 thyme
 parsley
+coriander springs
 
 
 = Meat =
 180g skinless chicken breast
+chicken thigh fillet
 bacon
 chicken breast
 steak
 beef strips
-mince
 beef mince
 
 
 = Dairy =
 butter
 cheese
+tasty cheese
 creme fraiche
 double cream
 feta cheese
 milk
 parmesan
 natural yoghurt
+goats cheese
 
 
 = Tinned =
@@ -79,6 +86,7 @@ can tuna in oil
 sliced pitted black olives
 capers
 water chestnuts
+420g can Heinz Big Red Tomato Soup
 
 
 = Condiments =
@@ -88,6 +96,8 @@ peanut butter
 runny honey
 salad dressing
 soy sauce
+light soy sauce
+malt vinegar
 black bean sauce
 
 
@@ -99,6 +109,7 @@ lasagne sheet
 pasta
 rice
 spaghetti
+450g packet Hokkien noodles
 
 
 = Sauces / Powders =
@@ -109,6 +120,7 @@ saffron
 chicken or vegetable stock cube
 chicken stock cube
 vegetable stock cube
+beef stock
 curry powder
 
 
@@ -124,11 +136,14 @@ unsalted cashew
 balsamic vinegar
 extra virgin olive oil
 olive oil
+vegetable oil
 pepper
 salt
 sesame oil
 sesame seeds
 vegetable stock
+shao hsing wine or dry sherry
+white sugar
 
 
 = Cured Meat =

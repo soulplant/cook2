@@ -193,11 +193,11 @@ http://www.taste.com.au/recipes/30509/bolognese+sauce
 3 clove garlic
 1 carrot
 2 stick celery
-800 g mince
+800 g beef mince
 100 g button mushroom
 2 cup passata
 1 420g can Heinz Big Red Tomato Soup
-1 cup Beef Stock
+1 cup beef stock
 3/4 cup basil
 
 
@@ -261,10 +261,10 @@ soy sauce
 = Stirfried Hokkien Noodles =
 https://www.goodfood.com.au/recipes/kylie-kwongs-stirfried-hokkien-noodles-with-chicken-chilli-and-coriander-20170123-gtxgao
 
-400g chicken thigh fillet
+400 g chicken thigh fillet
 1/4 cup vegetable oil
 1 red onion
-12 ginger slice
+12 ginger slices
 1 450g packet Hokkien noodles
 2 tbsp shao hsing wine or dry sherry
 1 tbsp white sugar
@@ -273,10 +273,10 @@ https://www.goodfood.com.au/recipes/kylie-kwongs-stirfried-hokkien-noodles-with-
 1/2 tsp sesame oil
 1/4 cup coriander springs
 1/2 cup spring onion
-2 large red chillies
+2 red chili
 1 tbsp white sugar
 1 tbsp light soy sauce
-1 tbsp Shao Hsing wine or dry sherry
+1 tbsp shao hsing wine or dry sherry
 1/2 tsp sesame oil
 
 
@@ -285,6 +285,6 @@ The Internet
 
 goats cheese
 1 bunch asparagus
-2 big mushrooms
+2 big mushroom
 1 capsicum
 1 ciabatta
