@@ -15,7 +15,7 @@ interface DispatchProps {
 
 // TODO(james): Rename to ShowSourceToggle.
 /** Controls whether source recipes are listed for items in the shopping list. */
-class ShowNotesToggle extends React.Component<StateProps & DispatchProps, {}> {
+class ShowSourceToggle extends React.Component<StateProps & DispatchProps, {}> {
   render() {
     return (
       <div style={{ textAlign: "right" }}>
@@ -40,4 +40,4 @@ export default connect(
   {
     toggleShowNotes,
   }
-)(ShowNotesToggle);
+)(ShowSourceToggle);

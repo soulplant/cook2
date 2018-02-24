@@ -5,7 +5,7 @@ import { includeRecipe } from "../actions";
 import { Recipe } from "../lib/types";
 import { getAllRecipes, getIncludedRecipeIds } from "../selectors";
 import { State } from "../state";
-import ShowNotesToggle from "./ShowNotesToggle";
+import ShowSourceToggle from "./ShowSourceToggle";
 
 interface StateProps {
   allRecipes: Recipe[];
@@ -40,7 +40,7 @@ class RecipeList extends React.Component<StateProps & DispatchProps, {}> {
           );
         })}
         <br />
-        <ShowNotesToggle />
+        <ShowSourceToggle />
       </div>
     );
   }
