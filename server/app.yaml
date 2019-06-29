@@ -2,33 +2,16 @@ runtime: go
 api_version: go1
 
 handlers:
-  # - url: /
-  #   static_files: client/index.html
-  #   upload: client/index.html
-
-  - url: /builder
-    static_files: client/builder.html
-    upload: client/builder.html
-
-  - url: /style.css
-    static_files: client/style.css
-    upload: client/style.css
-
-  - url: /builder.css
-    static_files: client/builder.css
-    upload: client/builder.css
-
-  - url: /src/
-    static_dir: client/src
-
-  - url: /bower_components/
-    static_dir: client/bower_components
+  - url: /
+    static_files: client/index.html
+    upload: client/index.html
 
   - url: /data/
     static_dir: data
 
-  - url: /.*
-    script: _go_app
+  - url: /(.*)$
+    static_files: client/\1
+    upload: client/.*
 
 skip_files:
   - ^(.*/)?#.*#$
