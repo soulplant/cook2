@@ -15,11 +15,13 @@ garlic
 ginger
 ginger slices
 large tomato
+leek
 lemon
 lettuce
 lime
 onion
 potato
+pumpkin
 red chili
 red onion
 small red onion
@@ -49,7 +51,10 @@ naan bread
 basil
 basil leaves
 coriander
+ground cumin
+ground coriander
 mint
+nutmeg
 rosemary
 thyme
 parsley
@@ -72,6 +77,7 @@ cheese
 tasty cheese
 creme fraiche
 double cream
+thin cream
 feta cheese
 milk
 parmesan
@@ -80,14 +86,15 @@ goats cheese
 
 
 = Tinned =
-tinned tomato
-passata
+420g can Heinz Big Red Tomato Soup
 anchovy fillet
 can tuna in oil
-sliced pitted black olives
 capers
+passata
+sliced pitted black olives
+tinned tomato
+tomato puree
 water chestnuts
-420g can Heinz Big Red Tomato Soup
 
 
 = Condiments =
@@ -118,6 +125,7 @@ butter chicken curry sauce
 hoisin sauce
 sambal oleck
 saffron
+chicken stock
 chicken or vegetable stock cube
 chicken stock cube
 vegetable stock cube
