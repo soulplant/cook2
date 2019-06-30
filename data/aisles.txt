@@ -1,0 +1,157 @@
+= Fresh =
+asparagus
+big mushroom
+button mushroom
+cauliflower
+celery
+cherry tomato
+carrot
+cucumber
+egg
+eggplant
+eggs
+garlic
+ginger
+ginger slices
+large tomato
+lemon
+lettuce
+lime
+onion
+potato
+red chili
+red onion
+small red onion
+tomato
+capsicum
+red capsicum
+yellow capsicum
+zucchini
+sweet potato
+sugar snap peas
+mixed mushrooms
+mushrooms
+bok choi
+spring onion
+
+
+= Bread =
+bread
+breadstick
+ciabatta
+ciabatta loaf
+fruit loaf
+naan bread
+
+
+= Herbs =
+basil
+basil leaves
+coriander
+mint
+rosemary
+thyme
+parsley
+coriander springs
+
+
+= Meat =
+180g skinless chicken breast
+chicken thigh fillet
+bacon
+chicken breast
+steak
+beef strips
+beef mince
+
+
+= Dairy =
+butter
+cheese
+tasty cheese
+creme fraiche
+double cream
+feta cheese
+milk
+parmesan
+natural yoghurt
+goats cheese
+
+
+= Tinned =
+tinned tomato
+passata
+anchovy fillet
+can tuna in oil
+sliced pitted black olives
+capers
+water chestnuts
+420g can Heinz Big Red Tomato Soup
+
+
+= Condiments =
+fish sauce
+mayonnaise
+peanut butter
+runny honey
+salad dressing
+soy sauce
+light soy sauce
+malt vinegar
+black bean sauce
+
+
+= Pasta / Rice =
+dried medium egg noodle
+egg noodles
+fettucine
+lasagne sheet
+pasta
+rice
+spaghetti
+450g packet Hokkien noodles
+
+
+= Sauces / Powders =
+butter chicken curry sauce
+hoisin sauce
+sambal oleck
+saffron
+chicken or vegetable stock cube
+chicken stock cube
+vegetable stock cube
+beef stock
+curry powder
+
+
+= Breakfast =
+cereal
+
+
+= Nuts =
+unsalted cashew
+
+
+= Cooking Needs =
+balsamic vinegar
+extra virgin olive oil
+olive oil
+vegetable oil
+pepper
+salt
+sesame oil
+sesame seeds
+vegetable stock
+shao hsing wine or dry sherry
+white sugar
+
+
+= Cured Meat =
+chorizo
+
+= Frozen =
+frozen peas
+
+
+= Misc =
+skewers
