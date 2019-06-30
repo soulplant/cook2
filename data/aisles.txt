@@ -1,6 +1,7 @@
 = Fresh =
 asparagus
 big mushroom
+brussels sprouts
 button mushroom
 cauliflower
 celery
