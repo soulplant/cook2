@@ -13,8 +13,9 @@
 ul {
   display: inline-block;
 }
-li {
+.ingredient-list li {
   color: #555;
+  list-style-type: none;
 }
 .recipe {
   text-align: right;
@@ -32,8 +33,10 @@ li {
   padding-left: 1.5em;
   display: inline-block;
 }
-li {
-  list-style-type: none;
+.recipe-instructions {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 0;
 }
 input[type=checkbox] {
   position: relative;

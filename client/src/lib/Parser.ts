@@ -49,7 +49,7 @@ class IngredientParser {
     }
     return {
       quantity,
-      name,
+      name
     };
   }
 
@@ -128,10 +128,14 @@ export class Parser {
       var parseIngredient: (
         line: string
       ) => Ingredient = parser.parseIngredient.bind(parser);
+      const parts = sections[i].parts;
+      const steps = parts.length > 2 ? parts.slice(2) : [];
       recipes.push({
         id: i,
+        url: parts[0][0] || null,
         name: sections[i].header,
         ingredients: sections[i].parts[1].map(parseIngredient),
+        steps
       });
     }
     return recipes;

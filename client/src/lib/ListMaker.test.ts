@@ -1,9 +1,9 @@
 import { ListMaker } from "./ListMaker";
-import { Ingredient, Recipe, Aisle } from "./types";
+import { Aisle, Ingredient, Recipe } from "./types";
 
 const aisle: Aisle = {
   name: "Fresh",
-  ingredientNames: ["ing1"],
+  ingredientNames: ["ing1"]
 };
 
 const ing1: Ingredient = { name: "ing1", quantity: [1, "tsp"] };
@@ -11,7 +11,9 @@ const ing2: Ingredient = { name: "ing2", quantity: [1, "tsp"] };
 const recipe1: Recipe = {
   id: 1,
   name: "recipe1",
+  url: "http://www.recipe1.com/",
   ingredients: [ing1, ing2],
+  steps: []
 };
 
 describe("ListMaker", () => {

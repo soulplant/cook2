@@ -13,7 +13,9 @@ export interface ShoppingListIngredient {
 export interface Recipe {
   id: number;
   name: string;
+  url: string | null;
   ingredients: Ingredient[];
+  steps: string[][];
 }
 
 export interface Section {

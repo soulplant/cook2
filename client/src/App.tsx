@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-
+import RecipeInstructionsView from "./containers/RecipeInstructionsView";
 import RecipeList from "./containers/RecipeList";
 import ShoppingList from "./containers/ShoppingList";
 import { getIsLoading } from "./selectors";
@@ -24,11 +24,12 @@ class App extends React.Component<Props & DispatchProps, {}> {
       <div style={{ fontFamily: "monospace" }}>
         <RecipeList />
         <ShoppingList />
+        <RecipeInstructionsView />
       </div>
     );
   }
 }
 
 export default connect((state: State) => ({
-  isLoading: getIsLoading(state),
+  isLoading: getIsLoading(state)
 }))(App);
