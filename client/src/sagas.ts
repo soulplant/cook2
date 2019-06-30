@@ -1,6 +1,5 @@
 import { call, put, takeEvery } from "redux-saga/effects";
-
-import { INITIAL_LOAD_START, initialLoadDone } from "./actions";
+import { initialLoadDone, INITIAL_LOAD_START } from "./actions";
 
 export function* watchInitialLoad() {
   yield takeEvery(INITIAL_LOAD_START, performInitialLoad);
@@ -11,7 +10,7 @@ async function getFilesAsMap(
 ): Promise<{ [name: string]: string }> {
   const contents = await Promise.all(
     fileNames.map(async name => {
-      const resp = await fetch(`/data/${name}.txt`);
+      const resp = await fetch(`./data/${name}.txt`);
       return await resp.text();
     })
   );
