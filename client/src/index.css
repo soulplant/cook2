@@ -36,8 +36,7 @@ li {
   list-style-type: none;
 }
 input[type=checkbox] {
-  position: relative;
-  top: 3px;
+  left: 1em;
 }
 body {
   font-family: monospace
