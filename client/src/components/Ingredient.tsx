@@ -1,6 +1,5 @@
 import * as React from "react";
-
-import { ShoppingListIngredient, Quantity } from "../lib/types";
+import { Quantity, ShoppingListIngredient } from "../lib/types";
 
 interface Props {
   ingredient: ShoppingListIngredient;

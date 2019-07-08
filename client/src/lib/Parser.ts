@@ -19,6 +19,13 @@ class IngredientParser {
     if (line === "") {
       return null;
     }
+    // Preparation directions are not considered part of the name of the
+    // ingredient.
+    let preparation;
+    line = line.replace(/ ?\(.*\)/g, sub => {
+      preparation = sub;
+      return "";
+    });
     var words = line.split(" ");
     if (words.length === 0) {
       return null;
@@ -49,7 +56,8 @@ class IngredientParser {
     }
     return {
       quantity,
-      name
+      name,
+      preparation
     };
   }
 

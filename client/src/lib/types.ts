@@ -1,6 +1,8 @@
 export interface Ingredient {
   name: string;
   quantity: Quantity | null;
+  // How the ingredient is prepared (e.g. chopped, crushed).
+  preparation?: string;
   recipe?: number;
 }
 

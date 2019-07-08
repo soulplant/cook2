@@ -1,6 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { Recipe } from "../lib/types";
+import { formatQuantity } from "../components/Ingredient";
+import { Ingredient, Recipe } from "../lib/types";
 import { getIncludedRecipes } from "../selectors";
 import { State } from "../state";
 
@@ -9,6 +10,17 @@ interface StateProps {
 }
 
 interface DispatchProps {}
+
+const IngredientView = (props: { ingredient: Ingredient }) => {
+  const quantity = props.ingredient.quantity
+    ? formatQuantity(props.ingredient.quantity)
+    : "";
+  return (
+    <p>
+      {quantity} {props.ingredient.name} {props.ingredient.preparation}
+    </p>
+  );
+};
 
 class RecipeInstructionsView extends React.Component<
   StateProps & DispatchProps
@@ -41,6 +53,12 @@ class RecipeInstructionsView extends React.Component<
             )
           ) : null}
         </p>
+        <p>= Ingredients =</p>
+        <ul>
+          {this.props.recipe.ingredients.map((ing, i) => (
+            <IngredientView key={i} ingredient={ing} />
+          ))}
+        </ul>
         {steps && (
           <ol>
             {steps.map((s, i) => (
