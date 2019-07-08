@@ -1,6 +1,7 @@
 = Fresh =
 asparagus
 big mushroom
+brown onion
 brussels sprouts
 button mushroom
 cauliflower
@@ -75,13 +76,16 @@ beef mince
 butter
 cheese
 tasty cheese
+cheddar cheese
 creme fraiche
 double cream
+thickened cream
 thin cream
 feta cheese
 milk
 parmesan
 natural yoghurt
+parmesan cheese
 goats cheese
 
 
@@ -143,6 +147,7 @@ unsalted cashew
 
 = Cooking Needs =
 balsamic vinegar
+caster sugar
 extra virgin olive oil
 olive oil
 vegetable oil
@@ -152,6 +157,7 @@ sesame oil
 sesame seeds
 vegetable stock
 shao hsing wine or dry sherry
+red wine
 white sugar
 
 
