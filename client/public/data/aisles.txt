@@ -64,6 +64,7 @@ coriander springs
 
 = Meat =
 180g skinless chicken breast
+skinless chicken breast
 chicken thigh fillet
 bacon
 chicken breast
@@ -120,6 +121,7 @@ fettucine
 lasagne sheet
 pasta
 rice
+white rice
 spaghetti
 450g packet Hokkien noodles
 
