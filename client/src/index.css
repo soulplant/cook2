@@ -24,9 +24,6 @@ ul {
   display: inline-block;
   vertical-align: top;
 }
-.recipe-list label {
-  text-align: center;
-}
 .ingredient-list {
   margin: 0;
   padding: 0;
@@ -40,7 +37,8 @@ ul {
 }
 input[type=checkbox] {
   position: relative;
-  left: 1em;
+  left: 0.5em;
+  vertical-align: middle;
 }
 body {
   font-family: monospace
