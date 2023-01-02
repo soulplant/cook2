@@ -1,5 +1,6 @@
 = Fresh =
 asparagus
+avocado
 baby red delight potato
 big mushroom
 brown onion
@@ -54,6 +55,12 @@ dried gluten-free breadcrumbs
 basil
 basil leaves
 coriander
+paprika
+garlic powder
+onion powder
+dried oregano
+cayenne pepper
+coriander leaves
 ground cumin
 ground coriander
 dried coriander
@@ -79,10 +86,12 @@ beef mince
 = Dairy =
 butter
 cheese
+shredded cheese
 tasty cheese
 cheddar cheese
 creme fraiche
 double cream
+sour cream
 thickened cream
 thin cream
 feta cheese
@@ -137,6 +146,7 @@ sambal oleck
 saffron
 chicken stock
 chicken or vegetable stock cube
+beef stock cube
 chicken stock cube
 vegetable stock cube
 beef stock
@@ -154,6 +164,8 @@ unsalted cashew
 = Cooking Needs =
 balsamic vinegar
 caster sugar
+brown sugar
+cooking salt
 extra virgin olive oil
 olive oil
 vegetable oil
